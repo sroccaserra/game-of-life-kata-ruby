@@ -8,10 +8,15 @@ require './lib/game_of_life'
 =end
 
 RSpec.describe 'Game of Life' do
-  describe 'A dead cell' do
-    it 'should stay dead' do
+  describe 'A dead cell at [1, 1]' do
+    it 'should stay dead in a whole dead grid' do
       game = Game.new([])
-      expect(game.tick).to eq []
+      expect(game.tick).not_to include [1, 1]
+    end
+
+    it 'should become alive with three alive neighbours' do
+      game = Game.new([[0, 0], [1, 0], [2, 0]])
+      expect(game.tick).to include [1, 1]
     end
   end
 end
