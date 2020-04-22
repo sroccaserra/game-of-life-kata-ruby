@@ -1,13 +1,21 @@
+ONE = 1
+
 class Game
   def initialize(seed)
     @grid = seed
   end
 
   def tick
-    if @grid.empty?
-      []
+    if nb_neighbours(ONE, ONE) == 3
+      [[ONE, ONE]]
     else
-      [[1, 1]]
+      []
     end
+  end
+
+  private
+
+  def nb_neighbours(_, _)
+    @grid.size
   end
 end
