@@ -16,6 +16,6 @@ class Game
   private
 
   def nb_neighbours(_, _)
-    @grid.size
+    [@grid.size, 3].min
   end
 end
