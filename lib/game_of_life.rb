@@ -16,6 +16,7 @@ class Game
   private
 
   def nb_neighbours(_, _)
-    [@grid.size, 3].min
+    neighbours = @grid.reject { |cell| cell == [ONE, ONE] }
+    neighbours.size
   end
 end

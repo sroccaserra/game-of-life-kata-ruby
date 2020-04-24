@@ -35,5 +35,11 @@ RSpec.describe 'Game of Life' do
                        [1, 1]])
       expect(game.tick).to include [1, 1]
     end
+
+    it 'should die with 4 neighbours' do
+      game = Game.new([[0, 0], [1, 0], [2, 0],
+                       [0, 1], [1, 1]])
+      expect(game.tick).not_to include [1, 1]
+    end
   end
 end
